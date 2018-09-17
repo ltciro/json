@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <META HTTP-EQUIV="REFRESH" CONTENT="URL=http://10.5.0.220:4200/#">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <div style="text-align:center">
+        <h1>
+          Welcome to {{ title }}!
+        </h1>
+        <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+    </div>
+
+
+      <ul id="nav">
+          <h2>Parametros de busqueda de <em>solr</em></h2>
+      </ul>
+      <form>
+          <div>
+            <input type="search" placeholder="{{param}}"  #search>
+          </div>
+          <button (click)="ngOnInit(search.value)">{{btnResult}}</button>
+        </form>
+
+    <div id="cajas">
+      <div id="response">
+          <h1>response</h1>
+          <div>
+              <p>status = {{result.response?.numFound| number}}</p>
+              <p>QTime = {{result.response?.start | number }}</p>
+              <p>QTime = {{result.response?.docs[0].id }}</p>
+        </div>
+        <a style='cursor: pointer;' onClick="muestra_oculta('responseHeade')" title="" class="boton_mostrar">Mostrar / Ocultar</a>
+        <!--<div><a href='#' id="mas1" onclick="mostrar('responseHeade')" >Leer más...</a></div>-->
+      </div>
+      <div id="responseHeader">
+          <h1>responseHeader</h1>
+          <div>
+              <p>status = {{result.responseHeader?.status | number}}</p>
+              <p>QTime = {{result.responseHeader?.QTime | number }}</p>
+
+              <li>params
+                  <ol>
+                    <p>q = {{result.responseHeader?.params.q | titlecase}}</p>
+                    <p>indent = {{result.responseHeader?.params.indent | titlecase}}</p>
+                    <p>wt = {{result.responseHeader?.params.wt | titlecase}}</p>
+                  </ol>
+              </li>
+        </div>
+        <a style='cursor: pointer;' onClick="muestra_oculta('respons')" title="" class="boton_mostrar">Mostrar / Ocultar</a>
+        <!-- <div id="mas2"><a href='#'  onclick="mostrarde('respons')">Leer más...</a></div> -->
+      </div>
+    </div>
+<div class="responseHeade" id="responseHeade">
+      <form action="responseHeader" >
+
+        <fieldset>
+            <legend>Personal responseHeader:</legend>
+
+            <div id="foca">
+                 <p>Id:</p>
+                <input type="text" name="firstname" value="{{result.response?.docs[0].id }}">
+
+                <p>date:</p>
+                <input type="text" name="firstname" value="{{result.response?.docs[0].date }}">
+
+                <p>cp_revision:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].cp_revision }}">
+
+                <p>total_time:</p>
+                <input type="text" name="firstname" value="{{result.response?.docs[0].total_time }}">
+
+                <p>extended_properties_appversion:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].extended_properties_appversion }}">
+
+                <p>stream_content_type:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].stream_content_type }}">
+
+                <p>meta_paragraph_count:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].meta_paragraph_count }}">
+
+                <p>word_count:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].word_count }}">
+
+                <p>dcterms_created:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].dcterms_created }}">
+
+                <p>meta_line_count:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].meta_line_count }}">
+
+                <p>last_modified:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].last_modified }}">
+
+                <p>dcterms_modified:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].dcterms_modified }}">
+
+                <p>last_save_date:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].last_save_date }}">
+
+                <p>meta_character_count:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].meta_character_count }}">
+
+                <p>template:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].template }}">
+                <br>
+                <p>line_count:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].line_count }}">
+                <br>
+                <p>paragraph_count:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].paragraph_count }}">
+                <br>
+                <p>stream_name:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].stream_name }}">
+                <br>
+                <p>meta_save_date:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].meta_save_date}}">
+                <br>
+                <p>meta_character_count_with_spaces:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].meta_character_count_with_spaces }}">
+                <br>
+                <p>application_name:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].application_name }}">
+                <br>
+                <p>extended_properties_totaltime:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].extended_properties_totaltime }}">
+                <br>
+                <p>modified:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].modified }}">
+                <br>
+                <p>content_type:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].content_type }}">
+                <br>
+                <p>stream_size:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].stream_size }}">
+                <br>
+                <p>x_parsed_by:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].x_parsed_by }}">
+                <br>
+                <p>creator:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].creator }}">
+                <br>
+                <p>meta_author:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].meta_author }}">
+                <br>
+                <p>meta_creation_date:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].meta_creation_date }}">
+                <br>
+                <p>extended_properties_application:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].extended_properties_application }}">
+                <br>
+                <p>stream_source_info:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].stream_source_info }}">
+                <br>
+                <p>meta_last_author:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].meta_last_author }}">
+                <br>
+                <p>creation_date:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].creation_date }}">
+                <br>
+                <p>xmptpg_npages:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].xmptpg_npages }}">
+                <br>
+                <p>character_count_with_spaces:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].character_count_with_spaces }}">
+                <br>
+                <p>character_count:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].character_count }}">
+                <br>
+                <p>revision_number:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].revision_number }}">
+                <br>
+                <p>application_version:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].application_version }}">
+                <br>
+                <p>extended_properties_template:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].extended_properties_template }}">
+                <br>
+                <p>author:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].author }}">
+                <br>
+                <p>meta_page_count:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0].meta_page_count }}">
+                <br>
+                <p>_version_:</p>
+                <input type="text" name="lastname" value="{{result.response?.docs[0]._version_ }}">
+                <br><br>
+              </div>
+                <input type="submit" value="Submit">
+
+        </fieldset>
+      </form>
+    </div>
+    <div class="respons" id="respons">
+      <form action="response">
+        <fieldset>
+          <legend>Personal response:</legend>
+          Id:
+          <input type="text" name="firstname" value="{{result.response?.docs[0].id }}">
+          <br>
+          Name:
+          <input type="text" name="firstname" value="{{result.response?.docs[0].name }}">
+          <br>
+          manu:
+          <input type="text" name="lastname" value="{{result.response?.docs[0].manu }}">
+          <br>
+          manu_id_s:
+          <input type="text" name="firstname" value="{{result.response?.docs[0].manu_id_s }}">
+          <br>
+          features:
+          <input type="text" name="lastname" value="{{result.response?.docs[0].features }}">
+          <br>
+          price_c:
+          <input type="text" name="lastname" value="{{result.response?.docs[0].price_c }}">
+          <br>
+          inStock:
+          <input type="text" name="lastname" value="{{result.response?.docs[0].inStock }}">
+          <br>
+          _version_:
+          <input type="text" name="lastname" value="{{result.response?.docs[0]._version_ }}">
+          <br><br>
+          <input type="submit" value="Submit">
+        </fieldset>
+      </form>
+    </div>
+        <!-- <hr/>
+        <pre>{{result|json}}</pre> -->
+</body>
+</html>
