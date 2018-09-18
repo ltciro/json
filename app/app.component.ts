@@ -27,14 +27,16 @@ export class AppComponent {
       console.log(val);
    });
  */
-   /* answerQuestion(): void {
+ 
+  }
+  
+  generateData(param): void {
+    this.param = param;
     this.json
-      .verJson(this.APIUrl)
+      .verJson(this.APIUrl+"&q=' + this.param + '")
       .subscribe(
       resultQuestion => (this.result = resultQuestion),
       error => (console.log('Ups! we have an error: ', error))
       );
-  }
- */
   }
 }
