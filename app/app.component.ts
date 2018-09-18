@@ -14,12 +14,12 @@ export class AppComponent {
   param = 'GBP';
   result: any = [];
   btnResult: string = 'Generar';
-  APIUrl: string = 'http://10.5.0.120:8983/solr/core2/select?indent=on&wt=json';
+  APIUrl: string = 'http://10.5.0.120:8983/solr/core2/select?indent=on';
   constructor(private json: JsonService) {
 
   }
   ngOnInit() {
-    this.json.verJson(this.APIUrl+"&q=' + this.param + '").subscribe(val => (this.result = val), error => (console.log('!UPS tenemos un error: ', error)));
+    this.json.verJson(this.APIUrl+"&q=' + this.param + '&wt=json").subscribe(val => (this.result = val), error => (console.log('!UPS tenemos un error: ', error)));
 
 
   /* ngOnInit(){valval
@@ -33,7 +33,7 @@ export class AppComponent {
   generateData(param): void {
     this.param = param;
     this.json
-      .verJson(this.APIUrl+"&q=' + this.param + '")
+      .verJson(this.APIUrl+"&q=' + this.param + '&wt=json")
       .subscribe(
       resultQuestion => (this.result = resultQuestion),
       error => (console.log('Ups! we have an error: ', error))
